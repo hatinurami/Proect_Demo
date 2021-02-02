@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="42a9bb5596374a60aaf51dda385e815e" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="demo_bdModel.class_tab" Width="1.5" PointX="3.625" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="demo_bdModel.grade" Width="1.5" PointX="3.875" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="demo_bdModel.logins" Width="2.5" PointX="6.75" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="demo_bdModel.members" Width="1.5" PointX="6.625" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="demo_bdModel.person" Width="1.5" PointX="2" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="demo_bdModel.pol_tab" Width="1.5" PointX="4.375" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="demo_bdModel.prepod" Width="1.5" PointX="8.375" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="demo_bdModel.studnow_tab" Width="1.5" PointX="11.625" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="demo_bdModel.sysdiagrams" Width="1.5" PointX="9.875" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="demo_bdModel.zavuch" Width="1.5" PointX="13.875" PointY="6.125" IsExpanded="true" />
+        <AssociationConnector Association="demo_bdModel.FK_members_class_tab" ManuallyRouted="false" />
+        <AssociationConnector Association="demo_bdModel.FK_prepod_class_tab" ManuallyRouted="false" />
+        <AssociationConnector Association="demo_bdModel.FK_members_grade" ManuallyRouted="false" />
+        <AssociationConnector Association="demo_bdModel.FK_members_grade1" ManuallyRouted="false" />
+        <AssociationConnector Association="demo_bdModel.FK_members_grade2" ManuallyRouted="false" />
+        <AssociationConnector Association="demo_bdModel.FK_members_person" ManuallyRouted="false" />
+        <AssociationConnector Association="demo_bdModel.FK_members_pol_tab" ManuallyRouted="false" />
+        <AssociationConnector Association="demo_bdModel.FK_members_studnow_tab" ManuallyRouted="false" />
+        <AssociationConnector Association="demo_bdModel.FK_prepod_pol_tab" ManuallyRouted="false" />
+        <AssociationConnector Association="demo_bdModel.FK_zavuch_pol_tab" ManuallyRouted="false" />
+        <AssociationConnector Association="demo_bdModel.FK_zavuch_pol_tab1" ManuallyRouted="false" />
+        <AssociationConnector Association="demo_bdModel.FK_person_person" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="demo_bdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="class_tab">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="members" Relationship="Self.FK_members_class_tab" FromRole="class_tab" ToRole="members" />
+    <NavigationProperty Name="prepod" Relationship="Self.FK_prepod_class_tab" FromRole="class_tab" ToRole="prepod" />
+  </EntityType>
+  <EntityType Name="grade">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="grade1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="members" Relationship="Self.FK_members_grade" FromRole="grade" ToRole="members" />
+    <NavigationProperty Name="members1" Relationship="Self.FK_members_grade1" FromRole="grade" ToRole="members" />
+    <NavigationProperty Name="members2" Relationship="Self.FK_members_grade2" FromRole="grade" ToRole="members" />
+  </EntityType>
+  <EntityType Name="logins">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="rool" Type="Int32" />
+    <Property Name="id_user" Type="Int32" />
+  </EntityType>
+  <EntityType Name="members">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="data_rogd" Type="DateTime" Precision="0" />
+    <Property Name="id_pol" Type="Int32" />
+    <Property Name="id_class" Type="Int32" />
+    <Property Name="id_person" Type="Int32" />
+    <Property Name="grade01" Type="Int32" />
+    <Property Name="grade02" Type="Int32" />
+    <Property Name="grade03" Type="Int32" />
+    <Property Name="id_studNow" Type="Int32" />
+    <NavigationProperty Name="class_tab" Relationship="Self.FK_members_class_tab" FromRole="members" ToRole="class_tab" />
+    <NavigationProperty Name="grade" Relationship="Self.FK_members_grade" FromRole="members" ToRole="grade" />
+    <NavigationProperty Name="grade1" Relationship="Self.FK_members_grade1" FromRole="members" ToRole="grade" />
+    <NavigationProperty Name="grade2" Relationship="Self.FK_members_grade2" FromRole="members" ToRole="grade" />
+    <NavigationProperty Name="person" Relationship="Self.FK_members_person" FromRole="members" ToRole="person" />
+    <NavigationProperty Name="pol_tab" Relationship="Self.FK_members_pol_tab" FromRole="members" ToRole="pol_tab" />
+    <NavigationProperty Name="studnow_tab" Relationship="Self.FK_members_studnow_tab" FromRole="members" ToRole="studnow_tab" />
+  </EntityType>
+  <EntityType Name="person">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hight" Type="Int32" />
+    <Property Name="weight" Type="Int32" />
+    <Property Name="addinfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="members" Relationship="Self.FK_members_person" FromRole="person" ToRole="members" />
+    <NavigationProperty Name="person1" Relationship="demo_bdModel.FK_person_person" FromRole="person" ToRole="person1" />
+    <NavigationProperty Name="person2" Relationship="demo_bdModel.FK_person_person" FromRole="person1" ToRole="person" />
+  </EntityType>
+  <EntityType Name="pol_tab">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="members" Relationship="Self.FK_members_pol_tab" FromRole="pol_tab" ToRole="members" />
+    <NavigationProperty Name="prepod" Relationship="Self.FK_prepod_pol_tab" FromRole="pol_tab" ToRole="prepod" />
+    <NavigationProperty Name="zavuch" Relationship="Self.FK_zavuch_pol_tab" FromRole="pol_tab" ToRole="zavuch" />
+    <NavigationProperty Name="zavuch1" Relationship="Self.FK_zavuch_pol_tab1" FromRole="pol_tab" ToRole="zavuch" />
+  </EntityType>
+  <EntityType Name="prepod">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_class" Type="Int32" />
+    <Property Name="fname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_pol" Type="Int32" />
+    <Property Name="spech" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="class_tab" Relationship="Self.FK_prepod_class_tab" FromRole="prepod" ToRole="class_tab" />
+    <NavigationProperty Name="pol_tab" Relationship="Self.FK_prepod_pol_tab" FromRole="prepod" ToRole="pol_tab" />
+  </EntityType>
+  <EntityType Name="studnow_tab">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="studNow" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="members" Relationship="Self.FK_members_studnow_tab" FromRole="studnow_tab" ToRole="members" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="zavuch">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_pol" Type="Int32" />
+    <NavigationProperty Name="pol_tab" Relationship="Self.FK_zavuch_pol_tab" FromRole="zavuch" ToRole="pol_tab" />
+    <NavigationProperty Name="pol_tab1" Relationship="Self.FK_zavuch_pol_tab1" FromRole="zavuch" ToRole="pol_tab" />
+  </EntityType>
+  <Association Name="FK_members_class_tab">
+    <End Role="class_tab" Type="Self.class_tab" Multiplicity="0..1" />
+    <End Role="members" Type="Self.members" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="class_tab">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="members">
+        <PropertyRef Name="id_class" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_prepod_class_tab">
+    <End Role="class_tab" Type="Self.class_tab" Multiplicity="0..1" />
+    <End Role="prepod" Type="Self.prepod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="class_tab">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="prepod">
+        <PropertyRef Name="id_class" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_members_grade">
+    <End Role="grade" Type="Self.grade" Multiplicity="0..1" />
+    <End Role="members" Type="Self.members" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grade">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="members">
+        <PropertyRef Name="grade01" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_members_grade1">
+    <End Role="grade" Type="Self.grade" Multiplicity="0..1" />
+    <End Role="members" Type="Self.members" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grade">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="members">
+        <PropertyRef Name="grade02" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_members_grade2">
+    <End Role="grade" Type="Self.grade" Multiplicity="0..1" />
+    <End Role="members" Type="Self.members" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grade">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="members">
+        <PropertyRef Name="grade03" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_members_person">
+    <End Role="person" Type="Self.person" Multiplicity="0..1" />
+    <End Role="members" Type="Self.members" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="person">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="members">
+        <PropertyRef Name="id_person" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_members_pol_tab">
+    <End Role="pol_tab" Type="Self.pol_tab" Multiplicity="0..1" />
+    <End Role="members" Type="Self.members" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pol_tab">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="members">
+        <PropertyRef Name="id_pol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_members_studnow_tab">
+    <End Role="studnow_tab" Type="Self.studnow_tab" Multiplicity="0..1" />
+    <End Role="members" Type="Self.members" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="studnow_tab">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="members">
+        <PropertyRef Name="id_studNow" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_prepod_pol_tab">
+    <End Role="pol_tab" Type="Self.pol_tab" Multiplicity="0..1" />
+    <End Role="prepod" Type="Self.prepod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pol_tab">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="prepod">
+        <PropertyRef Name="id_pol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_zavuch_pol_tab">
+    <End Role="pol_tab" Type="Self.pol_tab" Multiplicity="0..1" />
+    <End Role="zavuch" Type="Self.zavuch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pol_tab">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="zavuch">
+        <PropertyRef Name="id_pol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_zavuch_pol_tab1">
+    <End Role="pol_tab" Type="Self.pol_tab" Multiplicity="0..1" />
+    <End Role="zavuch" Type="Self.zavuch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pol_tab">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="zavuch">
+        <PropertyRef Name="id_pol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="demo_bdEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="class_tab" EntityType="Self.class_tab" />
+    <EntitySet Name="grade" EntityType="Self.grade" />
+    <EntitySet Name="logins" EntityType="Self.logins" />
+    <EntitySet Name="members" EntityType="Self.members" />
+    <EntitySet Name="person" EntityType="Self.person" />
+    <EntitySet Name="pol_tab" EntityType="Self.pol_tab" />
+    <EntitySet Name="prepod" EntityType="Self.prepod" />
+    <EntitySet Name="studnow_tab" EntityType="Self.studnow_tab" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="zavuch" EntityType="Self.zavuch" />
+    <AssociationSet Name="FK_members_class_tab" Association="Self.FK_members_class_tab">
+      <End Role="class_tab" EntitySet="class_tab" />
+      <End Role="members" EntitySet="members" />
+    </AssociationSet>
+    <AssociationSet Name="FK_prepod_class_tab" Association="Self.FK_prepod_class_tab">
+      <End Role="class_tab" EntitySet="class_tab" />
+      <End Role="prepod" EntitySet="prepod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_members_grade" Association="Self.FK_members_grade">
+      <End Role="grade" EntitySet="grade" />
+      <End Role="members" EntitySet="members" />
+    </AssociationSet>
+    <AssociationSet Name="FK_members_grade1" Association="Self.FK_members_grade1">
+      <End Role="grade" EntitySet="grade" />
+      <End Role="members" EntitySet="members" />
+    </AssociationSet>
+    <AssociationSet Name="FK_members_grade2" Association="Self.FK_members_grade2">
+      <End Role="grade" EntitySet="grade" />
+      <End Role="members" EntitySet="members" />
+    </AssociationSet>
+    <AssociationSet Name="FK_members_person" Association="Self.FK_members_person">
+      <End Role="person" EntitySet="person" />
+      <End Role="members" EntitySet="members" />
+    </AssociationSet>
+    <AssociationSet Name="FK_members_pol_tab" Association="Self.FK_members_pol_tab">
+      <End Role="pol_tab" EntitySet="pol_tab" />
+      <End Role="members" EntitySet="members" />
+    </AssociationSet>
+    <AssociationSet Name="FK_members_studnow_tab" Association="Self.FK_members_studnow_tab">
+      <End Role="studnow_tab" EntitySet="studnow_tab" />
+      <End Role="members" EntitySet="members" />
+    </AssociationSet>
+    <AssociationSet Name="FK_prepod_pol_tab" Association="Self.FK_prepod_pol_tab">
+      <End Role="pol_tab" EntitySet="pol_tab" />
+      <End Role="prepod" EntitySet="prepod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_zavuch_pol_tab" Association="Self.FK_zavuch_pol_tab">
+      <End Role="pol_tab" EntitySet="pol_tab" />
+      <End Role="zavuch" EntitySet="zavuch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_zavuch_pol_tab1" Association="Self.FK_zavuch_pol_tab1">
+      <End Role="pol_tab" EntitySet="pol_tab" />
+      <End Role="zavuch" EntitySet="zavuch" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(demo_bdModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(demo_bdModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <AssociationSet Name="FK_person_person" Association="demo_bdModel.FK_person_person">
+      <End Role="person" EntitySet="person" />
+      <End Role="person1" EntitySet="person" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <Association Name="FK_person_person">
+    <End Type="demo_bdModel.person" Role="person" Multiplicity="1" />
+    <End Type="demo_bdModel.person" Role="person1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="person">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="person1">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

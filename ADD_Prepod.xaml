@@ -1,0 +1,179 @@
+﻿<Window x:Class="Proect_Demo.ADD_Prepod"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proect_Demo"
+        mc:Ignorable="d"
+        Title="ADD_Prepod" ResizeMode="NoResize" Height="589.5" Width="826" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="{x:Type Label}">
+            <Setter Property="ItemsControl.FontFamily" Value="Fulbo Argenta"/>
+            <Setter Property="ItemsControl.FontSize" Value="25"/>
+            <Setter Property="ItemsControl.Foreground" Value="White"/>
+            <Setter Property="ItemsControl.HorizontalContentAlignment" Value="Right"/>
+        </Style>
+
+        <Style x:Key="{x:Type Button}">
+            <Setter Property="ItemsControl.FontFamily" Value="Yu Gothic UI"/>
+            <Setter Property="ItemsControl.Foreground" Value="White"/>
+            <Setter Property="ItemsControl.FontSize" Value="15"/>
+            <Setter Property="ItemsControl.Effect">
+                <Setter.Value>
+                    <DropShadowEffect ShadowDepth="3" Opacity="0.7" Color="#000c40"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ItemsControl.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="11"
+                                Background="#834D72"
+                                BorderThickness="0">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Button.IsMouseOver" Value="True">
+                    <Setter Property="ItemsControl.Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border CornerRadius="5"
+                                Background="#EDB36D"
+                                BorderThickness="0.5">
+                                    <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="{x:Type TextBox}" >
+            <Setter Property="ItemsControl.HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="ItemsControl.Foreground" Value="LightGray"/>
+
+            <Setter Property="ItemsControl.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border CornerRadius="11">
+                            <Border.Background>
+                                <SolidColorBrush Color="White" Opacity="0.5"/>
+
+                            </Border.Background>
+
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.Background>
+            <RadialGradientBrush RadiusX="1" RadiusY="0.4">
+                <GradientStop Color="White" Offset="0"/>
+                <GradientStop Color="#FF000C40" Offset="2"/>
+            </RadialGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Добавить преподавателя" Grid.Row="0" Grid.RowSpan="2" Foreground="#392A3E" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35">
+            <Label.Effect>
+                <BlurEffect Radius="9" KernelType="Box"/>
+            </Label.Effect>
+        </Label>
+
+        <Label Content="Добавить преподавателя" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35"/>
+
+        <Border Grid.Row="1" Grid.RowSpan="9"  Margin="94,33,94,33.125">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF40002C" Offset="2"/>
+                    <GradientStop Color="#FF9D8FBB"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="25" ShadowDepth="10" Direction="20" Opacity="0.7" Color="#392A3E"/>
+            </Border.Effect>
+            <Grid Margin="10,0" >
+                <Grid.RowDefinitions>
+
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="174*"/>
+                    <ColumnDefinition Width="176*"/>
+
+                </Grid.ColumnDefinitions>
+                <Label Content="Фамилия" Grid.Row="0" Grid.Column="0" FontSize="23" HorizontalAlignment="Right" Margin="0,16,163,0" Width="127"/>
+                <TextBox x:Name="fam_add" Text="Введите фамилию" Foreground="LightGray" GotFocus="fam_add_GotFocus" LostFocus="fam_add_LostFocus" Grid.Row="0" FontSize="23" FontFamily="Simeiz" HorizontalAlignment="Stretch" Margin="143,19,81,3" Grid.ColumnSpan="2"/>
+                <Label Content="Имя" Grid.Row="1" Grid.Column="0" FontSize="23" HorizontalAlignment="Right" Margin="0,16,163,55" Width="67" Grid.RowSpan="2"/>
+                <TextBox x:Name="name_add" Text="Введите имя" Foreground="LightGray" GotFocus="name_add_GotFocus" LostFocus="name_add_LostFocus" Grid.Row="1" FontSize="23" FontFamily="Simeiz" HorizontalAlignment="Stretch" Margin="143,19,81,2" Grid.ColumnSpan="2"/>
+                <Label Content="Отчество" Grid.Row="2" Grid.Column="0" FontSize="23"  HorizontalAlignment="Right" Margin="0,14,163,2" Width="131"/>
+                <TextBox x:Name="fname_add" Text="Введите отчество" Foreground="LightGray" GotFocus="fname_add_GotFocus" LostFocus="fname_add_LostFocus" Grid.Row="2" FontSize="23" FontFamily="Simeiz" HorizontalAlignment="Stretch" Margin="143,16,81,5" Grid.ColumnSpan="2"/>
+                <Label Content="Дата рождения" FontSize="23" Width="219"  HorizontalAlignment="Left" Margin="5,15,0,51" Grid.Row="3" Grid.RowSpan="2"/>
+                <DatePicker x:Name="date" Grid.Row="3" FontSize="23" Width="160" FontFamily="Simeiz" HorizontalAlignment="Left" Margin="234,12,0,5" Grid.ColumnSpan="2"/>
+                <Label Content="Группа" Grid.Row="6" FontSize="23"  HorizontalAlignment="Right" Margin="0,7,163,5" Width="106"/>
+                <ComboBox x:Name="group" FontSize="18" ItemsSource="{Binding members.id_class}" Loaded="load_class"
+                            DisplayMemberPath="class"  Background="#FF9D8FBB"  SelectedValuePath="id" Margin="152,12,17,10" Grid.Row="6">
+
+                    <ComboBox.Effect>
+                        <DropShadowEffect ShadowDepth="1"/>
+                    </ComboBox.Effect>
+                </ComboBox>
+                <Label Content="Логин" Grid.Row="4" FontSize="23"  HorizontalAlignment="Right" Margin="0,12,181,4" Width="88"/>
+                <TextBox x:Name="log_add" Text="Введите логин" Foreground="LightGray" GotFocus="log_add_GotFocus" LostFocus="log_add_LostFocus" Grid.Row="4" FontSize="23" FontFamily="Simeiz" HorizontalAlignment="Stretch" Margin="155,15,166,6" Grid.ColumnSpan="2"/>
+                <Label Content="Пароль" Grid.Row="5" FontSize="23"  HorizontalAlignment="Right" Margin="0,9,163,6" Width="106"/>
+                <TextBox x:Name="pass_add" Text="Введите пароль" Foreground="LightGray" GotFocus="pass_add_GotFocus" LostFocus="pass_add_LostFocus" Grid.Row="5" FontSize="23" FontFamily="Simeiz" HorizontalAlignment="Stretch" Margin="155,12,166,9" Grid.ColumnSpan="2"/>
+                <Label Content="Пол" Grid.Row="3" Grid.Column="1" FontSize="23"  HorizontalAlignment="Left" Margin="109,15,0,2" Width="65"/>
+                <ComboBox x:Name="pol"  ItemsSource="{Binding members.pol}" Loaded="load_class1" FontSize="18"
+                DisplayMemberPath="pol"  SelectedValuePath="id" Grid.Column="1" HorizontalAlignment="Right" Margin="0,15,52,7" Width="76" Grid.Row="3">
+                    <ComboBox.Effect>
+                        <DropShadowEffect ShadowDepth="1"/>
+                    </ComboBox.Effect>
+                </ComboBox>
+            </Grid>
+        </Border>
+        <Button x:Name="back" Margin="95,0" Content="Назад" Grid.Row="9" Height="35" Width="100"  HorizontalAlignment="Left" FontSize="20" Click="back_Click" Grid.RowSpan="2">
+            <Button.Effect>
+                <DropShadowEffect ShadowDepth="1"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="clear" Content="Сброс" Grid.Row="9" Height="35" Width="100" HorizontalAlignment="Center" FontSize="20" Click="clear_Click" Grid.RowSpan="2">
+            <Button.Effect>
+                <DropShadowEffect ShadowDepth="1"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="add"  Margin="95,0" Content="Добавить" Grid.Row="9" Height="35" Width="100" HorizontalAlignment="Right" FontSize="20" Click="add_Click" Grid.RowSpan="2">
+            <Button.Effect>
+                <DropShadowEffect ShadowDepth="1"/>
+            </Button.Effect>
+        </Button>
+    </Grid>
+</Window>
